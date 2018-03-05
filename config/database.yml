@@ -1,0 +1,21 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  username: postgres
+  password: password
+  host: localhost
+
+development:
+  <<: *default
+  database: freshfromtheoven_development
+
+test:
+  <<: *default
+  database: freshfromtheoven_test
+
+production:
+  <<: *default
+  database: freshfromtheoven_production
+  # username: freshfromtheoven
+  # password: <%= ENV['FRESHFROMTHEOVEN_DATABASE_PASSWORD'] %>
